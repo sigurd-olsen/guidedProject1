@@ -1,12 +1,12 @@
 ﻿using System;
 
 // initialize variables - graded assignments 
-int currentAssignments = 5;
+int examAssignments = 5;
 
-int[] sophiaScores = new int[] { 90, 86, 87, 98, 100 };
-int[] andrewScores = new int[] { 92, 89, 81, 96, 90 };
-int[] emmaScores = new int[] { 90, 85, 87, 98, 68 };
-int[] loganScores = new int[] { 90, 95, 87, 88, 96 };
+int[] sophiaScores = new int[] { 90, 86, 87, 98, 100, 94, 90 };
+int[] andrewScores = new int[] { 92, 89, 81, 96, 90, 89 };
+int[] emmaScores = new int[] { 90, 85, 87, 98, 68, 89, 89, 89 };
+int[] loganScores = new int[] { 90, 95, 87, 88, 96, 96 };
 
 // Student names
 string[] studentNames = new string[] { "Sophia", "Andrew", "Emma", "Logan" };
@@ -38,15 +38,20 @@ foreach (string name in studentNames)
 
         int sumAssignmentScores = 0;
         decimal currentStudentGrade = 0;
+        int gradedAssignments = 0;
 
         foreach (int score in studentScores)
         {
             //Add the exam score to the sum
-            sumAssignmentScores += score;
+            gradedAssignments++;
+            if (gradedAssignments <= examAssignments)
+                sumAssignmentScores += score;
+            else
+                sumAssignmentScores += score/10;
         }
 
 
-        currentStudentGrade = (decimal)(sumAssignmentScores) / currentAssignments;
+        currentStudentGrade = (decimal)(sumAssignmentScores) / examAssignments;
 
         if (currentStudentGrade >= 97)
             currentStudentLetterGrade = "A+";
