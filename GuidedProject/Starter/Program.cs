@@ -10,25 +10,45 @@ int[] loganScores = new int[] { 90, 95, 87, 88, 96 };
 
 // Student names
 string[] studentNames = new string[] { "Sophia", "Andrew", "Emma", "Logan" };
+int[] studentScores = new int[10];
+
+// write the report header to the console
+Console.WriteLine("Student\t\tGrade\n");
 
 foreach (string name in studentNames)
 {
-    if (name == "Sophia")
+    string currentStudent = name;
+    if (currentStudent == "Sophia")
     {
-        int sophiaSum = 0;
-        decimal sophiaScore;
-        foreach (int score in sophiaScores)
+        studentScores = sophiaScores;
+    }   
+    else if (currentStudent == "Andrew")
+    {
+        studentScores = andrewScores;
+    }
+    else if (currentStudent == "Emma")
+    {
+        studentScores = emmaScores;
+    }
+    else if (currentStudent == "Logan")
+    {
+        studentScores = loganScores;
+    }
+
+        int sumAssignmentScores = 0;
+        decimal currentStudentGrade = 0;
+
+        foreach (int score in studentScores)
         {
             //Add the exam score to the sum
-            sophiaSum += score;
+            sumAssignmentScores += score;
         }
 
 
-        sophiaScore = (decimal)sophiaSum / currentAssignments;
+        currentStudentGrade = (decimal)(sumAssignmentScores) / currentAssignments;
 
-        Console.WriteLine("Student\t\tGrade\n");
-        Console.WriteLine("Sophia:\t\t" + sophiaScore + "\tA-");
-    }
+        Console.WriteLine($"{currentStudent}\t\t{currentStudentGrade} \t?");
+    
 }
 
 
